@@ -75,7 +75,7 @@ export function Input(props: InputProps) {
           className={classNames(
             props.error
               ? 'text-red-500 border-red-500 focus:ring-red-500'
-              : ' border-first-grey-border text-first-blue focus:ring-first-blue focus:border-first-blue',
+              : ' border-gray-600 text-indigo-500 focus:ring-indigo-500 focus:border-indigo-500',
             'shadow-sm block sm:text-sm rounded-md h-[34px] w-[300px]',
             props.svg ? 'pl-12' : 'pl-3',
           )}
