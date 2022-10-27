@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { PhoneIcon, UserCircleIcon, HomeModernIcon  } from '@heroicons/react/24/outline'
+import { PhoneIcon, UserCircleIcon, HomeModernIcon, AtSymbolIcon  } from '@heroicons/react/24/outline'
 import { Input } from './Reusables/Input';
 
 
@@ -90,7 +90,7 @@ function App() {
             setAddress(e.target.value)
             setaddressError('')
           }}
-          svg={<HomeModernIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />}
+          svg={<HomeModernIcon/>}
           type="text"
           width={400}
           error={addressError}
@@ -110,7 +110,25 @@ function App() {
             setAddress(e.target.value)
             setaddressError('')
           }}
-          svg={<HomeModernIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />}
+          svg={<AtSymbolIcon/>}
+          type="text"
+          error={addressError}
+          onBlur={(e) => {
+            if (address === '') {
+              setAddress('Address is required')
+            } else {
+              setAddress('')
+            }
+          }}
+        />
+        <Input
+          label="Birthday (optional)"
+          placeholder="Jan 1st 2023"
+          onChange={(e) => {
+            setAddress(e.target.value)
+            setaddressError('')
+          }}
+          darkMode={true}
           type="text"
           error={addressError}
           onBlur={(e) => {
@@ -131,8 +149,8 @@ function App() {
           </button>
         </div>
       </div>
-      <div className='flex flex-col mx-10'>
-        <h2 className='text-2xl font-bold text-white'>Contact Form</h2>
+      <div className='flex flex-col mx-10 bg-slate-200 p-6 rounded-lg shadow-xl shadow-slate-600'>
+        <h2 className='text-2xl font-bold text-slate-800'>Contact Form</h2>
         <Input
           onChange={(e) => {
             setName(e.target.value)
@@ -196,21 +214,21 @@ function App() {
           </button>
         </div>
         <div className='w-full flex justify-center'>
-        <div className='bg-stone-700 w-[600px] h-30 flex flex-col text-lg tracking-wider p-3 rounded text-green-700 mt-10 '>
-          <span className='text-md tracking-wider uppercase text-center'>Call State Here</span>
-          <div className='bg-stone-800 rounded m-2 p-3 '>
+        <div className='bg-slate-400 w-[600px] h-30 flex flex-col text-lg tracking-wider p-3 rounded text-white mt-10 shadow-2xl shadow-slate-600'>
+          <span className='text-md tracking-wider uppercase text-center font-bold text-slate-800'>Call State Here</span>
+          <div className='bg-slate-700 rounded m-2 p-3'>
             {name}
           </div>
-          <div className='bg-stone-800 rounded m-2 p-3'>
+          <div className='bg-slate-700 rounded m-2 p-3'>
             {number}
           </div>
-          <div className='bg-stone-800 rounded m-2 p-3'>
+          <div className='bg-slate-700 rounded m-2 p-3'>
             {address}
           </div>
-          <div className='bg-stone-800 rounded m-2 p-3'>
+          <div className='bg-slate-700 rounded m-2 p-3'>
             {/* {favColor} */}
           </div>
-          <div className='bg-stone-800 rounded m-2 p-3'>
+          <div className='bg-slate-700 rounded m-2 p-3'>
             {/* {number} */}
           </div>
           </div>
