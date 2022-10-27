@@ -14,6 +14,7 @@ interface InputProps {
   name?: string
   onKeyUp?: any
   onKeyDown?: any
+  darkMode?: boolean
 }
 
 function classNames(...classes: string[]): string {
@@ -41,18 +42,22 @@ export function Input(props: InputProps) {
     setValue(props.value)
   }, [props])
   return (
-    <div className='flex flex-col mb-4'>
+    <div className='flex flex-col'>
       <label
         htmlFor='name'
-        className='mb-1 text-xs tracking-wide text-gray-600 sm:text-sm'
+        className={classNames(
+          'mb-1 text-xs tracking-wide text-gray-300 sm:text-sm',
+          props.darkMode ? 'text-gray-300' : 'text-gray-500'
+        )}
       >
         {props.label}
       </label>
-
       <div className='relative'>
-        <div className='absolute top-0 left-0 flex w-10 h-full border border-transparent'>
+        <div className='absolute top-0 left-0 flex w-10 h-full'>
           {props.svg && (
-            <div className='flex items-center justify-center w-full h-full text-lg text-gray-600 bg-gray-100 rounded-tl rounded-bl z-5'>
+            <div className={classNames
+            ('flex items-center justify-center w-full h-full text-lg rounded-tl rounded-bl z-5', 
+            props.darkMode ? 'text-gray-300' : 'text-gray-600')}>
               <svg
                 viewBox='0 0 24 24'
                 width='24'
@@ -75,8 +80,9 @@ export function Input(props: InputProps) {
           className={classNames(
             props.error
               ? 'text-red-500 border-red-500 focus:ring-red-500'
-              : ' border-gray-600 text-indigo-500 focus:ring-indigo-500 focus:border-indigo-500',
+              : ' border-gray-600 focus:ring-pink-900 focus:border-pink-900',
             'shadow-sm block sm:text-sm rounded-md h-[34px] w-[300px]',
+            props.darkMode ? 'bg-stone-800 text-green-400' : 'bg-gray-100 text-green-600',
             props.svg ? 'pl-12' : 'pl-3',
           )}
           autoComplete={props.autocomplete}
