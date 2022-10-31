@@ -49,8 +49,7 @@ function App() {
         <h2 className='text-2xl font-bold text-white'>Custom Width, Svgs, Light/Dark Mode</h2>
         <Input
           onChange={(e) => {
-            setName(e.target.value)
-            handleNameChange(e)
+            console.log('changed', e.target.value)
           }}
           label='Name'
           svg={<UserCircleIcon />}
@@ -59,11 +58,7 @@ function App() {
           placeholder={'Enter Name'}
           type='text'
           autocomplete='none'
-          id={'name'}
           name='Merchant Name'
-          onBlur={(e) => {
-            setnameError('')
-          }}
           darkMode={true}
         />
         <Input
@@ -113,13 +108,6 @@ function App() {
           svg={<AtSymbolIcon/>}
           type="text"
           error={addressError}
-          onBlur={(e) => {
-            if (address === '') {
-              setAddress('Address is required')
-            } else {
-              setAddress('')
-            }
-          }}
         />
         <Input
           label="Birthday (optional)"
@@ -131,22 +119,8 @@ function App() {
           darkMode={true}
           type="text"
           error={addressError}
-          onBlur={(e) => {
-            if (address === '') {
-              setAddress('Address is required')
-            } else {
-              setAddress('')
-            }
-          }}
         />
         <div>
-          <button
-          onClick={() => {
-            console.log('name', name, 'number', number)
-          }}
-          className='bg-stone-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded uppercase'>
-            Submit
-          </button>
         </div>
       </div>
       <div className='flex flex-col mx-10 bg-slate-200 p-6 rounded-lg shadow-xl shadow-slate-600'>
